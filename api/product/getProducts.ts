@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { API_URL } from './config';
+import { API_URL } from '../config';
 
 const fetchProducts = async () => {
     const res = await fetch(`${API_URL}/produtos`, {

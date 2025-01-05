@@ -1,12 +1,11 @@
 import { useMutation } from "@tanstack/react-query"
-import { API_URL } from "./config"
+import { API_URL } from "../config"
 
 
-const deleteProduct = async (id: string) => {
+const deleteProduct = async (id: number) => {
     const res = await fetch(`${API_URL}/produtos/${id}`, {
         method: 'DELETE',
     })
-    console.log(res)
     const data = await res.json()
     if (!res.ok) {
         throw new Error(data.message)
@@ -17,6 +16,6 @@ const deleteProduct = async (id: string) => {
 
 export const useDeleteProduct = () => {
     return useMutation({
-        mutationFn: (id: string) => deleteProduct(id)
+        mutationFn: (id: number) => deleteProduct(id)
     })
 }

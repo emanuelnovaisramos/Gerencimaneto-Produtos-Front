@@ -4,7 +4,8 @@ import { Roboto } from "next/font/google";
 import { PrimeReactProvider } from "primereact/api";
 import QueryProvider from "@/domains/QueryProvider";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
-import 'primeicons/primeicons.css';
+import "primeicons/primeicons.css";
+import { Header } from "@/components/Header";
 
 const roboto = Roboto({
   weight: ["400", "500", "700", "900"],
@@ -12,7 +13,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Avaliação",
+  title: "Gerencimento de Produtos",
   description:
     "Avaliação de Competência - Desenvolvedor(a) de Software (Full stack)",
 };
@@ -26,7 +27,10 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`${roboto.className} antialiased`}>
         <PrimeReactProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <Header />
+            {children}
+          </QueryProvider>
         </PrimeReactProvider>
       </body>
     </html>
